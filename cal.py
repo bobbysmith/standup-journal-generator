@@ -57,6 +57,9 @@ def main():
     month = args.m or today.month
     filename = os.path.join(os.path.expanduser('~'), 'Documents', 'NOTES', 'standup', f'{year}-{two_digitify(month)}.txt')
 
+    if month > 12:
+        sys.exit(f'Enter a valid month.')
+
     if not os.path.exists(filename):
         with open(filename, 'w') as f:
             f.write(make_calendar(year, month))
