@@ -1,3 +1,5 @@
+#!/usr/bin/env python3gs
+
 from datetime import datetime
 import argparse
 import os
