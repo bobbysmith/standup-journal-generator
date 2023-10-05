@@ -14,6 +14,9 @@ def parse_args():
 def two_digitify(num):
     return f'{num:02}'
 
+def is_valid_month(month):
+    return 1 <= month <= 12
+
 def is_leap_year(year):
     return ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)
 
@@ -57,7 +60,7 @@ def main():
     month = args.m or today.month
     filename = os.path.join(os.path.expanduser('~'), 'Documents', 'NOTES', 'standup', f'{year}-{two_digitify(month)}.txt')
 
-    if month > 12:
+    if not is_valid_month(month):
         sys.exit(f'Enter a valid month.')
 
     if not os.path.exists(filename):
