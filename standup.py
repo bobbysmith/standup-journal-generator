@@ -5,7 +5,7 @@ import argparse
 import os
 import sys
 
-def parse_args():
+def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-m', type=int, nargs='?', help='Month')
     parser.add_argument('-y', type=int, nargs='?', help='Year')
@@ -54,7 +54,7 @@ def make_calendar(year, month):
     return output
 
 def main():
-    args = parse_args()
+    args = get_args()
     today = datetime.now()
     year = args.y or today.year
     month = args.m or today.month
